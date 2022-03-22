@@ -1,6 +1,11 @@
-CREATE TABLE POST (
+CREATE TABLE CAR (
   id BIGINT AUTO_INCREMENT  PRIMARY KEY,
-  title VARCHAR(400) NOT NULL,
-  content VARCHAR(2000) NULL,
-  created timestamp
+  typ VARCHAR(400) NOT NULL
+);
+
+create table users(
+    id BIGINT  AUTO_INCREMENT PRIMARY KEY,
+    username varchar ( 50 ) not null UNIQUE,
+    password varchar ( 100 ) not null,
+    enabled boolean not null
 );

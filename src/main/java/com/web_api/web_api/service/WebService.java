@@ -1,6 +1,7 @@
 package com.web_api.web_api.service;
 
 import com.web_api.web_api.client.WebClient;
+import com.web_api.web_api.controller.dtos.VehiceDto;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -29,8 +30,8 @@ public class WebService {
     }
 
 
-    public String getCars(String voideship, String date_from) {
-        return webClient.getCarVehicles(voideship, date_from);
+    public VehiceDto getCars() {
+        return webClient.getCarVehicles("06","20210101");
 
     }
 

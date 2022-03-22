@@ -1,5 +1,7 @@
 package com.web_api.web_api.client;
 
+import com.web_api.web_api.controller.dtos.VehiceDto;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -11,11 +13,13 @@ public class WebClient {
     private final static String URL_PATH_VEHICLES = "https://api.cepik.gov.pl/";
 
 
-    public String getCarVehicles(String voideship, String date_from) {
+    public VehiceDto getCarVehicles(String wojewodztwo, String date_from) {
         
-        return callgetMethod("pojazdy?wojewodztwo={voideship}&data_od=20210101", 
-                                String.class, 
-                                voideship, date_from);
+        // return URL_PATH_VEHICLES +String.format("pojazdy?wojewodztwo=%s&data-od=%s", wojewodztwo, date_from);
+
+        return callgetMethod(String.format("pojazdy?wojewodztwo=%s&data-od=%s", wojewodztwo, date_from), VehiceDto.class, wojewodztwo, date_from);
+
+    
 
     }
 
