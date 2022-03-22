@@ -1,7 +1,7 @@
 package com.web_api.web_api.service;
 
+
 import com.web_api.web_api.client.WebClient;
-import com.web_api.web_api.controller.dtos.VehiceDto;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +17,6 @@ public class WebService {
     
     private  RestTemplate restTemplate = new RestTemplate();
     private final static String URL_PATH = "https://api.cepik.gov.pl/";
-    private final static String URL_PATH_VEHICLES = "https://api.cepik.gov.pl/pojazdy?wojewodztwo=";
     private final WebClient webClient;
 
 
@@ -30,9 +29,12 @@ public class WebService {
     }
 
 
-    public VehiceDto getCars() {
+    public String getCars() {
         return webClient.getCarVehicles("06","20210101");
+    }
 
+    public String getCar() {
+        return webClient.getCarVehicle(2154353680897058L);
     }
 
 }

@@ -1,6 +1,4 @@
 package com.web_api.web_api.controller;
-
-import com.web_api.web_api.controller.dtos.VehiceDto;
 import com.web_api.web_api.service.WebService;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +21,12 @@ public class WebController {
 
 
     @GetMapping("/cars")
-    public VehiceDto getCars() {
+    public String getCars() {
         return webService.getCars();
+    }
+
+    @GetMapping("/car")
+    public String getCar() {
+        return webService.getCar();
     }
 }

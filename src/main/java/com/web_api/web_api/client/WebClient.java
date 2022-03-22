@@ -1,7 +1,5 @@
 package com.web_api.web_api.client;
 
-import com.web_api.web_api.controller.dtos.VehiceDto;
-
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,15 +11,17 @@ public class WebClient {
     private final static String URL_PATH_VEHICLES = "https://api.cepik.gov.pl/";
 
 
-    public VehiceDto getCarVehicles(String wojewodztwo, String date_from) {
+    public  String getCarVehicles(String wojewodztwo, String date_from) {
         
-        // return URL_PATH_VEHICLES +String.format("pojazdy?wojewodztwo=%s&data-od=%s", wojewodztwo, date_from);
 
-        return callgetMethod(String.format("pojazdy?wojewodztwo=%s&data-od=%s", wojewodztwo, date_from), VehiceDto.class, wojewodztwo, date_from);
-
-    
-
+        return callgetMethod(String.format("pojazdy?wojewodztwo=%s&data-od=%s", wojewodztwo, date_from), String.class, wojewodztwo, date_from);
     }
+
+    public  String getCarVehicle(long id) {
+        return  callgetMethod(String.format("pojazdy/%s", id), String.class, id);
+     
+    }
+
 
     // dodanie nowej metody, uniwersalnej dla rest api
     private <T> T callgetMethod(String urlPath, Class<T> responsetype, Object...objects)
